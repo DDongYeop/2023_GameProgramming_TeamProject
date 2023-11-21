@@ -178,6 +178,7 @@
     <ClInclude Include="define.h" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="EventMgr.h" />
+    <ClInclude Include="FileMgr.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game_Scene.h" />
     <ClInclude Include="KeyMgr.h" />
@@ -207,6 +208,7 @@
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="EventMgr.cpp" />
+    <ClCompile Include="FileMgr.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="main.cpp" />

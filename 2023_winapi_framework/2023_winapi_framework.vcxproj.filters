@@ -62,6 +62,9 @@
     <Filter Include="Engine\08. Module">
       <UniqueIdentifier>{b8698270-780f-4bb6-bf63-bf69c99fa2ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\FIleMgr">
+      <UniqueIdentifier>{bf37a1f3-2600-426d-b755-0e6b59ea1a80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -154,6 +157,9 @@
     <ClInclude Include="2023_winapi_framework.h">
       <Filter>Default</Filter>
     </ClInclude>
+    <ClInclude Include="FileMgr.h">
+      <Filter>Engine\03. Manager\FIleMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -240,6 +246,9 @@
     </ClCompile>
     <ClCompile Include="Animator.cpp">
       <Filter>Engine\07. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="FileMgr.cpp">
+      <Filter>Engine\03. Manager\FIleMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
