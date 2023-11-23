@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Scene.h"
 #include "Object.h"
+#include "UI.h"
 Scene::Scene()
 {
 }
@@ -12,6 +13,15 @@ Scene::~Scene()
 
 void Scene::Update()
 {
+	for (UINT i = 0; i < (UINT)UI_GROUP::END; ++i)			// UI
+	{
+		for (size_t j = 0; j < m_vecUI[i].size(); ++j)
+		{
+			m_vecObj[i][j]->Update();
+			m_vecUI[i][j]->Update();
+		}
+	}
+
 	for (UINT i = 0; i < (UINT)OBJECT_GROUP::END; ++i)
 	{
 		for (size_t j = 0; j < m_vecObj[i].size(); ++j)
@@ -35,6 +45,14 @@ void Scene::FinalUpdate()
 
 void Scene::Render(HDC _dc)
 {
+	for (UINT i = 0; i < (UINT)UI_GROUP::END; ++i)		// UI
+	{
+		for (size_t j = 0; j < m_vecUI[i].size();)
+		{
+			m_vecUI[i][j]->Render(_dc);
+		}
+	}
+
 	for (UINT i = 0; i < (UINT)OBJECT_GROUP::END; ++i)
 	{
 		for (size_t j = 0; j < m_vecObj[i].size();)
@@ -52,6 +70,15 @@ void Scene::Render(HDC _dc)
 
 void Scene::Release()
 {
+	for (UINT i = 0; i < (UINT)UI_GROUP::END; ++i)			// UI
+	{
+		for (size_t j = 0; j < m_vecUI[i].size(); ++j)
+		{
+			delete m_vecUI[i][j];
+		}
+		m_vecUI[i].clear();
+	}
+
 	for (UINT i = 0; i < (UINT)OBJECT_GROUP::END; ++i)
 	{
 		for (size_t j = 0; j < m_vecObj[i].size(); ++j)
