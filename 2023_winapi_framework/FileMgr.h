@@ -6,9 +6,10 @@ class FileMgr
 {
 	SINGLE(FileMgr);
 public:
-	FileMgr();
-	~FileMgr();
+	void Init();
 public:
-	bool Exist(wstring path, wstring name);
+	bool Exist(wstring& _path, wstring& name);
+private:
+	wstring filePath;
 };
 
