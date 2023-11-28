@@ -13,5 +13,6 @@ public:
     void SetText(wstring text) { m_Text = text; }
 private:
     wstring m_Text;
+    HFONT m_hFont, m_hOldFont;
 };
 
