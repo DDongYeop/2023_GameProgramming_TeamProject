@@ -35,7 +35,7 @@ public:
 	}
 	const KEY_STATE& GetKey(int index) const
 	{
-		return m_vecKey[m_arrVKKey[index]].eState;
+		return m_vecKey[index].eState;
 	}
 	const int& GetKeyChar(int index) const
 	{
