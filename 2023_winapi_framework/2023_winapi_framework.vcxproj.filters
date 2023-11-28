@@ -62,11 +62,11 @@
     <Filter Include="Engine\08. Module">
       <UniqueIdentifier>{b8698270-780f-4bb6-bf63-bf69c99fa2ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Manager\FIleMgr">
-      <UniqueIdentifier>{bf37a1f3-2600-426d-b755-0e6b59ea1a80}</UniqueIdentifier>
+    <Filter Include="Engine\09. UI">
+      <UniqueIdentifier>{0ca5a29c-c548-4445-9e03-1b56446fc23c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Manager\WebSiteMgr">
-      <UniqueIdentifier>{a1b5ccaa-a379-475a-a4e9-e9f1db09c78f}</UniqueIdentifier>
+    <Filter Include="Engine\09. UI\MainUI">
+      <UniqueIdentifier>{0506d75b-3226-4285-93d3-6ea18f1cc28e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -160,11 +160,20 @@
     <ClInclude Include="2023_winapi_framework.h">
       <Filter>Default</Filter>
     </ClInclude>
-    <ClInclude Include="FileMgr.h">
-      <Filter>Engine\03. Manager\FIleMgr</Filter>
+    <ClInclude Include="UI.h">
+      <Filter>Engine\09. UI</Filter>
     </ClInclude>
-    <ClInclude Include="WebSiteMgr.h">
-      <Filter>Engine\03. Manager\WebSiteMgr</Filter>
+    <ClInclude Include="Button.h">
+      <Filter>Engine\09. UI\MainUI</Filter>
+    </ClInclude>
+    <ClInclude Include="InputField.h">
+      <Filter>Engine\09. UI\MainUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Engine\09. UI\MainUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_Scene.h">
+      <Filter>Engine\05. Scene\MainScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -253,11 +262,20 @@
     <ClCompile Include="Animator.cpp">
       <Filter>Engine\07. Component</Filter>
     </ClCompile>
-    <ClCompile Include="FileMgr.cpp">
-      <Filter>Engine\03. Manager\FIleMgr</Filter>
+    <ClCompile Include="UI.cpp">
+      <Filter>Engine\09. UI</Filter>
     </ClCompile>
-    <ClCompile Include="WebSiteMgr.cpp">
-      <Filter>Engine\03. Manager\WebSiteMgr</Filter>
+    <ClCompile Include="Button.cpp">
+      <Filter>Engine\09. UI\MainUI</Filter>
+    </ClCompile>
+    <ClCompile Include="InputField.cpp">
+      <Filter>Engine\09. UI\MainUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Engine\09. UI\MainUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_Scene.cpp">
+      <Filter>Engine\05. Scene\MainScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
