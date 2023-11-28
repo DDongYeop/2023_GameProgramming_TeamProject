@@ -52,7 +52,7 @@ void Core::GameLoop()
 		count = 0;
 	}*/
 	Update();
-	Render();
+	Render();		// 각 오브젝트 또는 UI 의 업데이트 다음에 렌더가 진행됨.
 }
 
 
