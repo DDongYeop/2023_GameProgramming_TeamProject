@@ -6,9 +6,9 @@ class Object
 public:
 	Object();
 	virtual ~Object();
-//public:	// 크기, 위치
-	//POINT m_ptPos;
-	//POINT m_ptScale;
+	//public:	// 크기, 위치
+		//POINT m_ptPos;
+		//POINT m_ptScale;
 public:
 	virtual void Update();
 	virtual void FinalUpdate() final;
@@ -22,8 +22,10 @@ public:
 	void SetScale(Vec2 _vScale) { m_vScale = _vScale; }
 	const Vec2& GetPos() const { return m_vPos; }
 	const Vec2& GetScale() const { return m_vScale; }
-	Collider* GetCollider() const 
-	{ return m_pCollider; }
+	Collider* GetCollider() const
+	{
+		return m_pCollider;
+	}
 	Animator* GetAnimator()
 	{
 		return m_pAnimator;

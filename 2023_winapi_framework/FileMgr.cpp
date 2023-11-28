@@ -24,9 +24,8 @@ bool FileMgr::Exist(wstring& _path, wstring& _name)
 	str.assign(path.begin(), path.end());
 	char* ch = new char[str.size()];
 	strcpy_s(ch, str.size() + 1, str.c_str());
-	if (_access(ch, 0) != -1) 
+	if (_access(ch, 0) != -1)
 		return true;
 	else
 		return false;
 }
- 

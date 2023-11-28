@@ -12,9 +12,9 @@ enum class KEY_STATE
 enum class KEY_TYPE
 {
 	LEFT, RIGHT, UP, DOWN,
-	Q,W,E,R,T,Y,U,I,O,P,
-	A,S,D,F,G,H,J,K,L,
-	Z,X,C,V,B,N,M,
+	Q, W, E, R, T, Y, U, I, O, P,
+	A, S, D, F, G, H, J, K, L,
+	Z, X, C, V, B, N, M,
 	CTRL, LALT, LSHIFT, SPACE,
 	ENTER, TAB, ESC, LBUTTON, RBUTTON, LAST
 	// LAST의미: 끝이라는 뜻이야
@@ -39,7 +39,7 @@ enum class UI_GROUP
 
 enum class PEN_TYPE
 {
-	HOLLOW, RED, GREEN, 
+	HOLLOW, RED, GREEN,
 	BLUE, YELLOW, END
 };
 

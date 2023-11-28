@@ -33,13 +33,13 @@ public:
 	{
 		return m_ptMouse;
 	}
-	const KEY_STATE& GetKey(int _eKey) const
+	const KEY_STATE& GetKey(int index) const
 	{
-		return m_vecKey[_eKey].eState;
+		return m_vecKey[m_arrVKKey[index]].eState;
 	}
-	int GetKeyType(int i)
+	const int& GetKeyChar(int index) const
 	{
-		return m_arrVKKey[i];
+		return m_arrVKKey[index];
 	}
 };
 

@@ -63,10 +63,16 @@
       <UniqueIdentifier>{b8698270-780f-4bb6-bf63-bf69c99fa2ad}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\09. UI">
-      <UniqueIdentifier>{0ca5a29c-c548-4445-9e03-1b56446fc23c}</UniqueIdentifier>
+      <UniqueIdentifier>{868a1224-016b-421d-92ee-b0d5b16453ae}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\09. UI\MainUI">
-      <UniqueIdentifier>{0506d75b-3226-4285-93d3-6ea18f1cc28e}</UniqueIdentifier>
+      <UniqueIdentifier>{b123df7e-4df0-4eb1-a51d-ec3e6ec5e4e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Manager\FileMgr">
+      <UniqueIdentifier>{06070c59-deb3-4941-8729-dcc3f2fc9382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Manager\WebSiteMgr">
+      <UniqueIdentifier>{a88b8635-a0ce-4fca-be2b-5be9791a7275}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +178,12 @@
     <ClInclude Include="Text.h">
       <Filter>Engine\09. UI\MainUI</Filter>
     </ClInclude>
+    <ClInclude Include="FileMgr.h">
+      <Filter>Engine\03. Manager\FileMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="WebSiteMgr.h">
+      <Filter>Engine\03. Manager\WebSiteMgr</Filter>
+    </ClInclude>
     <ClInclude Include="Test_Scene.h">
       <Filter>Engine\05. Scene\MainScene</Filter>
     </ClInclude>
@@ -273,6 +285,12 @@
     </ClCompile>
     <ClCompile Include="Text.cpp">
       <Filter>Engine\09. UI\MainUI</Filter>
+    </ClCompile>
+    <ClCompile Include="FileMgr.cpp">
+      <Filter>Engine\03. Manager\FileMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="WebSiteMgr.cpp">
+      <Filter>Engine\03. Manager\WebSiteMgr</Filter>
     </ClCompile>
     <ClCompile Include="Test_Scene.cpp">
       <Filter>Engine\05. Scene\MainScene</Filter>

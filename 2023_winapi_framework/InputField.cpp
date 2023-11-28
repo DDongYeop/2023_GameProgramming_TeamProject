@@ -57,7 +57,7 @@ void InputField::Update()
 		for (int i = 0; i < (int)KEY_TYPE::LAST; ++i)
 		{
 			//if (GetAsyncKeyState(KeyMgr::GetInst()->GetKeyType(i)))
-			if (  ==  )
+			//if (  ==  )
 			{
 				// 키 상태 확인해서 down 인 것이 있으면 그거 넣어주기
 			}
