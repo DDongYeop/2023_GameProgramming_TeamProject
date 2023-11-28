@@ -65,6 +65,9 @@
     <Filter Include="Engine\03. Manager\FIleMgr">
       <UniqueIdentifier>{bf37a1f3-2600-426d-b755-0e6b59ea1a80}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\WebSiteMgr">
+      <UniqueIdentifier>{a1b5ccaa-a379-475a-a4e9-e9f1db09c78f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -160,6 +163,9 @@
     <ClInclude Include="FileMgr.h">
       <Filter>Engine\03. Manager\FIleMgr</Filter>
     </ClInclude>
+    <ClInclude Include="WebSiteMgr.h">
+      <Filter>Engine\03. Manager\WebSiteMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -249,6 +255,9 @@
     </ClCompile>
     <ClCompile Include="FileMgr.cpp">
       <Filter>Engine\03. Manager\FIleMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="WebSiteMgr.cpp">
+      <Filter>Engine\03. Manager\WebSiteMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

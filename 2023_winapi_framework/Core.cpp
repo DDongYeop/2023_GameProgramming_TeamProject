@@ -8,6 +8,7 @@
 #include "CollisionMgr.h"
 #include "EventMgr.h"
 #include "FileMgr.h"
+#include "WebSiteMgr.h"
 
 bool Core::Init(HWND _hWnd, POINT _ptResolution)
 {
