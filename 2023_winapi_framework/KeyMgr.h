@@ -33,5 +33,13 @@ public:
 	{
 		return m_ptMouse;
 	}
+	const KEY_STATE& GetKey(int _eKey) const
+	{
+		return m_vecKey[_eKey].eState;
+	}
+	int GetKeyType(int i)
+	{
+		return m_arrVKKey[i];
+	}
 };
 
