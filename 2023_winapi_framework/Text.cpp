@@ -77,4 +77,5 @@ void Text::Render(HDC _dc)
 	RECT rt = RECT_MAKE(pos.x, pos.y, scale.x, scale.y);
 	DrawText(_dc, m_sPrintText.c_str(), m_sPrintText.length(), &rt, DT_SINGLELINE | DT_VCENTER | DT_CENTER);
 	SelectObject(_dc, oldFont);
+	DeleteObject(currentFont);
 }
