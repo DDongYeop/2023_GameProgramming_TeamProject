@@ -71,8 +71,8 @@
     <Filter Include="Engine\03. Manager\FileMgr">
       <UniqueIdentifier>{06070c59-deb3-4941-8729-dcc3f2fc9382}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Manager\WebSiteMgr">
-      <UniqueIdentifier>{a88b8635-a0ce-4fca-be2b-5be9791a7275}</UniqueIdentifier>
+    <Filter Include="Engine\03. Manager\OpenMgr">
+      <UniqueIdentifier>{e8917ea2-a2bf-4ed1-925d-3612a9c51446}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -181,11 +181,11 @@
     <ClInclude Include="FileMgr.h">
       <Filter>Engine\03. Manager\FileMgr</Filter>
     </ClInclude>
-    <ClInclude Include="WebSiteMgr.h">
-      <Filter>Engine\03. Manager\WebSiteMgr</Filter>
-    </ClInclude>
     <ClInclude Include="Test_Scene.h">
       <Filter>Engine\05. Scene\MainScene</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenMgr.h">
+      <Filter>Engine\03. Manager\OpenMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -289,11 +289,11 @@
     <ClCompile Include="FileMgr.cpp">
       <Filter>Engine\03. Manager\FileMgr</Filter>
     </ClCompile>
-    <ClCompile Include="WebSiteMgr.cpp">
-      <Filter>Engine\03. Manager\WebSiteMgr</Filter>
-    </ClCompile>
     <ClCompile Include="Test_Scene.cpp">
       <Filter>Engine\05. Scene\MainScene</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenMgr.cpp">
+      <Filter>Engine\03. Manager\OpenMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

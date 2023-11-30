@@ -186,6 +186,7 @@
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="OpenMgr.h" />
     <ClInclude Include="PathMgr.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
@@ -203,7 +204,6 @@
     <ClInclude Include="TimeMgr.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="Vec2.h" />
-    <ClInclude Include="WebSiteMgr.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
@@ -222,6 +222,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="OpenMgr.cpp" />
     <ClCompile Include="PathMgr.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Res.cpp" />
@@ -236,7 +237,6 @@
     <ClCompile Include="TimeMgr.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="Vec2.cpp" />
-    <ClCompile Include="WebSiteMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc" />
