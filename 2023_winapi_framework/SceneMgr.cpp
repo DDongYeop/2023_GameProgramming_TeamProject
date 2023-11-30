@@ -13,8 +13,8 @@ void SceneMgr::Init()
 	RegisterScene(L"Test_Scene", std::make_shared<Test_Scene>());
 
 	// Ã¹ ¾À ÁöÁ¤
-	//LoadScene(L"Start_Scene");
-	LoadScene(L"Test_Scene");
+	LoadScene(L"Start_Scene");
+	//LoadScene(L"Test_Scene");
 }
 
 void SceneMgr::Update()

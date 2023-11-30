@@ -74,6 +74,9 @@
     <Filter Include="Engine\03. Manager\WebSiteMgr">
       <UniqueIdentifier>{a88b8635-a0ce-4fca-be2b-5be9791a7275}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\PuzzleScene">
+      <UniqueIdentifier>{d2615bef-44c5-484e-bc9e-d5aa1e615405}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
