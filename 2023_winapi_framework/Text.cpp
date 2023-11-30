@@ -1,12 +1,27 @@
 #include "pch.h"
+#include "define.h"
 #include "Text.h"
 #include "pathMgr.h"
-
 #include "SelectGDI.h"
+#include "TimeMgr.h"
+#include "KeyMgr.h"
+#include <fstream>
+#include <queue>
 
-Text::Text()
-	: m_Text{}
+Text::Text() 
+	: m_iPrintIndex(0), m_fPrintTime(0.15f), m_fCurrentTime(0), m_sFrontText{}, m_sPrintText{}
 {
+	m_qPrintQueue = std::queue<wstring>();
+	AddFontResource(TEXT("Galmuri14 Regular.ttf"));
+	AddFontResource(TEXT("Orbit Regular.ttf"));
+}
+
+Text::Text(float _printTime) 
+	: m_iPrintIndex(0), m_fPrintTime(_printTime), m_fCurrentTime(0), m_sFrontText{}, m_sPrintText{}
+{
+	m_qPrintQueue = std::queue<wstring>();
+	AddFontResource(TEXT("Font\\Galmuri14 Regular.ttf"));
+	AddFontResource(TEXT("Font\\Orbit Regular.ttf"));
 }
 
 Text::~Text()
@@ -15,69 +30,52 @@ Text::~Text()
 
 void Text::Update()
 {
-	// update~
+	m_fCurrentTime += fDT;
+
+	if (KeyMgr::GetInst()->GetKey(KEY_TYPE::SPACE) == KEY_STATE::DOWN)
+	{
+		if (m_sPrintText.size() == m_sFrontText.size())
+		{
+			m_sFrontText = m_qPrintQueue.front();
+			m_qPrintQueue.pop();
+		}
+		else
+		{
+			m_sPrintText = m_sFrontText;
+		}
+	}
 }
 
-#include <fstream>
-
-bool DoesFileExist(const wstring& filePath) {
+bool DoesFileExist(const wstring& filePath) 
+{
 	std::ifstream file(filePath.c_str());
 	return file.good();
 }
 
 void Text::Render(HDC _dc)
 {
-	//SetWindowText(Core::GetInst()->GetHwnd(), L"titlebuf");
+	if (m_fCurrentTime >= m_fPrintTime)
+	{
+		m_fCurrentTime -= m_fPrintTime;
+		if (m_sFrontText.size() != 0)
+		{
+			if (m_sPrintText.size() < m_sFrontText.size())
+				m_sPrintText += m_sFrontText[m_sPrintText.size()];
+		}
+		else if (!m_qPrintQueue.empty())
+		{
+			m_sFrontText = m_qPrintQueue.front();
+			m_qPrintQueue.pop();
+		}
 
-	//AddFontResource(TEXT("Orbit-Regular.ttf"));
-	////AddFontResource(TEXT("Regular.ttf"));
-
-	wstring strfont = L"Font\\Galmuri14.ttf";
-	wstring strFilepath = PathMgr::GetInst()->GetResPath() + strfont;
-	LPCWSTR fontPath = strFilepath.c_str();
-
-	if (!DoesFileExist(fontPath)) {
-		MessageBox(NULL, L"폰트 파일이 존재하지 않습니다.", L"에러", MB_OK | MB_ICONERROR);
 	}
-
-	int result = AddFontResource(fontPath);
-	if (result == 0) {
-		MessageBox(NULL, L"폰트를 만들지 못했습니다.", L"에러", MB_OK | MB_ICONERROR);
-	}
-	AddFontResource(L"Galmuri14.ttf");
-	HFONT hFont = CreateFont(25, 0, 0, 0, 0, 0, 0, 0, HANGUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("Galmuri14"));
-	//HFONT hFont = CreateFont(25, 0, 0, 0, FW_DONTCARE, FALSE, FALSE, FALSE, DEFAULT_CHARSET,
-		//OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, endPath);
-	//HFONT hFont = CreateFont(25, 0, 0, 0, 0, 0, 0, 0, HANGUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, fontPath);
-	//
-	//if (hFont == NULL) {
-	//	MessageBox(NULL, L"폰트를 만들지 못했습니다.", L"에러", MB_OK | MB_ICONERROR);
-	//}
-	//
-	//SelectObject(_dc, hFont);
-
-	////wstring font = L"Font\\Orbit-Regular.ttf";
-	////wstring strFilepath = PathMgr::GetInst()->GetResPath() + font;
-
-	////LOGFONT lf = { 0 };
-	////lf.lfHeight = 25;
-	////lf.lfCharSet = HANGUL_CHARSET;
-	////lf.lfOutPrecision = OUT_TT_ONLY_PRECIS;  // TrueType 폰트만 사용
-	////lf.lfClipPrecision = CLIP_DEFAULT_PRECIS;
-	////lf.lfQuality = CLEARTYPE_QUALITY;
-	////wcscpy_s(lf.lfFaceName, LF_FACESIZE, L"Orbit-Regular");  // 폰트 이름 지정
-
-	////HFONT hFont = CreateFontIndirect(&lf);
-
-	////if (hFont == NULL) {
-	////	MessageBox(NULL, L"폰트를 만들지 못했습니다.", L"에러", MB_OK | MB_ICONERROR);
-	////}
-
-	SelectObject(_dc, hFont);
-	SelectGDI font(_dc, hFont);
+	HFONT currentFont = CreateFont(50, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("Orbit Regular"));
+	HFONT oldFont = (HFONT)SelectObject(_dc, currentFont);
 
 	Vec2 pos = GetPos();
 	Vec2 scale = GetScale();
 	RECT rt = RECT_MAKE(pos.x, pos.y, scale.x, scale.y);
-	DrawText(_dc, m_Text.c_str(), m_Text.length(), &rt, DT_SINGLELINE | DT_VCENTER | DT_CENTER);
+	DrawText(_dc, m_sPrintText.c_str(), m_sPrintText.length(), &rt, DT_SINGLELINE | DT_VCENTER | DT_CENTER);
+	SelectObject(_dc, oldFont);
+	DeleteObject(currentFont);
 }
