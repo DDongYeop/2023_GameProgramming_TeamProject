@@ -16,11 +16,11 @@ void Test_Scene::Init()
 	pObj->SetScale(Vec2(100.f, 100.f));
 	AddObject(pObj, OBJECT_GROUP::PLAYER);			// 이 4개의 줄 지우기
 
-	Text* pText = new Text;
-	pText->SetPos(Vec2(300, 100));
-	pText->SetScale(Vec2(400, 100));
-	pText->SetText(L"아니 이거 폰트가 적용이 된건가?");
-	AddUI(pText, UI_GROUP::TEXT);
+	//Text* pText = new Text;
+	//pText->SetPos(Vec2(300, 100));
+	//pText->SetScale(Vec2(400, 100));
+	//pText->SetText(L"아니 이거 폰트가 적용이 된건가?");
+	//AddUI(pText, UI_GROUP::TEXT);
 
 	Button* pBtn = new Button;
 	pBtn->SetPos(Vec2(100, 300));
@@ -30,8 +30,8 @@ void Test_Scene::Init()
 
 	InputField* pInputField = new InputField;
 	pInputField->SetPos(Vec2(1000, 200));
-	pInputField->SetScale(Vec2(100, 100));
-	pInputField->SetLimit(5);
+	pInputField->SetScale(Vec2(200, 100));
+	pInputField->SetLimit(10);
 	AddUI(pInputField, UI_GROUP::INPUTFIELD);
 
 	int a;
