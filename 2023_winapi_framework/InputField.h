@@ -20,7 +20,7 @@ public:
     }
     std::string GetText() {
         std::string temp;
-        for (int i = 0; i < m_limit; i++)
+        for (int i = 0; i < m_count; i++)
         {
             temp += m_wstr[i];
         }

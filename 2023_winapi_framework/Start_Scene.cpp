@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Start_Scene.h"
 //#include "Object.h"
-//#include "Core.h"
+#include "Core.h"
 //#include "Player.h"
 //#include "Monster.h"
 //#include "KeyMgr.h"
@@ -10,6 +10,7 @@
 
 #include "UI.h"
 #include "Text.h"
+#include "InputField.h"
 
 //void Start_Scene::Init()
 //{
@@ -66,15 +67,52 @@
 //	CollisionMgr::GetInst()->CheckReset();
 //}
 
+Text* pText = new Text();		// 이거 변수 빼시죵
+
 void Start_Scene::Init()
 {
+	// 변수 초기화들
+	m_puzzleOk = false;
+
+
+	SetWindowText(Core::GetInst()->GetHwnd(), L"경기게임마이스터고 입학 프로그램 ver.1.0 우엥");
+
+	pText->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2 })));
+	pText->SetScale(Vec2(700, 100));
+	pText->AddText(L"안녕하십니까.");
+	pText->AddText(L"반갑습니다.");
+	pText->AddText(L"안녕히가십시오.");
+	AddUI(pText, UI_GROUP::TEXT);
+
 
 }
 
+		InputField* pInputField = new InputField();
+		bool e = false;
 void Start_Scene::Update()
 {
 	Scene::Update();
+
+	if (pText->GetComplete() && !e) {			// 텍스트가 끝나면
+		// 해주고 어쩌고
+		pInputField->SetPos(Vec2(1000, 200));
+		pInputField->SetScale(Vec2(200, 100));
+		pInputField->SetLimit(10);
+		AddUI(pInputField, UI_GROUP::INPUTFIELD);
+		e = true;
+		//pText->ReSet();
+	}
+
+	if (pInputField->GetText() == "OK") {
+		SetWindowText(Core::GetInst()->GetHwnd(), L"헤헤");
+		m_puzzleOk = true;
+	}
+
+	if (m_puzzleOk) {
+
+	}
 }
+// 이거 실행 순서에 따라 return 해주면 좋을까? 그래서 배열을 후에 사용하는 것부터 처음에 나오는거지. 좀 생각해보기!
 
 void Start_Scene::Render(HDC _dc)
 {

@@ -117,8 +117,8 @@ void InputField::Update()
             }
         }
 
-        wstring b = std::to_wstring(m_count);
-        SetWindowText(Core::GetInst()->GetHwnd(), b.c_str());
+        //wstring b = std::to_wstring(m_count);
+        //SetWindowText(Core::GetInst()->GetHwnd(), b.c_str());
     }
 }
 
