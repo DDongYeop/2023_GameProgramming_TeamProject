@@ -74,6 +74,9 @@
     <Filter Include="Engine\03. Manager\OpenMgr">
       <UniqueIdentifier>{e8917ea2-a2bf-4ed1-925d-3612a9c51446}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\FadeMgr">
+      <UniqueIdentifier>{9dfed883-b50e-43d3-8f55-af33d47fe167}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -187,9 +190,16 @@
     <ClInclude Include="OpenMgr.h">
       <Filter>Engine\03. Manager\OpenMgr</Filter>
     </ClInclude>
+    <ClInclude Include="FadeMgr.h">
+      <Filter>Engine\03. Manager\FadeMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="Black_1x1.rc">
       <Filter>리소스 파일</Filter>
     </ResourceCompile>
   </ItemGroup>
@@ -198,6 +208,9 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="2023_winapi_framework.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\Output\bin\Res\Texture\Black_1x1.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>
@@ -294,6 +307,9 @@
     </ClCompile>
     <ClCompile Include="OpenMgr.cpp">
       <Filter>Engine\03. Manager\OpenMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="FadeMgr.cpp">
+      <Filter>Engine\03. Manager\FadeMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
