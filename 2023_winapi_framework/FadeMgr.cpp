@@ -32,8 +32,10 @@ void FadeMgr::Render(HDC _dc, HINSTANCE _instance)
 	SelectObject(_memDC, _memBitmap);
 	
 	// 오브젝트의 텍스처의 dc를 가져와서 얘를 제외하고 alphablend를 해야돼.
-	BitBlt(_dc, 0, 0, tResolution.x, tResolution.y, _memDC, 0, 0, SRCCOPY);
+	//HDC objectTextureDC = GetObjectTextureDC
+
 	AlphaBlend(_memDC, 0, 0, tResolution.x, tResolution.y, _dc, 0, 0, tResolution.x, tResolution.y, _bf);
+	BitBlt(_dc, 0, 0, tResolution.x, tResolution.y, _memDC, 0, 0, SRCCOPY);
 
 	DeleteObject(_memBitmap);
 	DeleteDC(_memDC);
