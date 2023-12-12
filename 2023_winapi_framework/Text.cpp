@@ -17,13 +17,13 @@ Text::Text()
 	AddFontResource(TEXT("Orbit Regular.ttf"));
 }
 
-Text::Text(float _printTime) 
-	: m_fPrintTime(_printTime), m_fCurrentTime(_printTime), m_sFrontText{}, m_sPrintText{}		// 글자 하나 바로 출력되라고
-{
-	m_qPrintQueue = std::queue<wstring>();
-	//AddFontResource(TEXT("Font\\Galmuri14 Regular.ttf"));
-	AddFontResource(TEXT("Font\\Orbit Regular.ttf"));
-}
+//Text::Text(float _printTime) 
+//	: m_fPrintTime(_printTime), m_fCurrentTime(_printTime), m_sFrontText{}, m_sPrintText{}		// 글자 하나 바로 출력되라고
+//{
+//	m_qPrintQueue = std::queue<wstring>();
+//	//AddFontResource(TEXT("Font\\Galmuri14 Regular.ttf"));
+//	AddFontResource(TEXT("Font\\Orbit Regular.ttf"));
+//}
 
 Text::~Text()
 {
@@ -84,19 +84,20 @@ void Text::Render(HDC _dc)
 			}
 		}
 		else {
-			m_sPrintText = L"";		// 글자가 끝났어.
+			//m_sPrintText = L"";		// 글자가 끝났어.
 		}
 	}
 
 	HFONT currentFont = CreateFont(50, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("Orbit Regular"));
+	//HFONT currentFont = CreateFont(50, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("엘리스 DX널리체  Light"));
+	//HFONT currentFont = CreateFont(50, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("Galmuri14 Regular"));
 	HFONT oldFont = (HFONT)SelectObject(_dc, currentFont);
 
 	Vec2 pos = GetPos();
 	Vec2 scale = GetScale();
 	RECT rt = RECT_MAKE(pos.x, pos.y, scale.x, scale.y);
-	DrawText(_dc, m_sPrintText.c_str(), m_sPrintText.length(), &rt, DT_SINGLELINE | DT_VCENTER | DT_CENTER);
+	DrawText(_dc, m_sPrintText.c_str(), m_sPrintText.length(), &rt, DT_VCENTER | DT_CENTER);
 
-	SelectObject(_dc, oldFont);
 	DeleteObject(currentFont);
 }
 

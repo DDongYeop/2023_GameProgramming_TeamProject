@@ -17,6 +17,7 @@ InputField::InputField()
     ////SetCaretBlinkTime(500);
     //SetCaretPos(10, 10);
     //SetWindowText(Core::GetInst()->GetHwnd(), L"캐럿보여라얍");
+    AddFontResource(TEXT("엘리스 DX널리체  Light.ttf"));
 }
 
 InputField::~InputField()
@@ -124,6 +125,9 @@ void InputField::Update()
 
 void InputField::Render(HDC _dc)
 {
+    HFONT currentFont = CreateFont(20, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0, VARIABLE_PITCH | FF_ROMAN, TEXT("엘리스 DX널리체  Light"));
+    HFONT oldFont = (HFONT)SelectObject(_dc, currentFont);
+
     Vec2 pos = GetPos();
     Vec2 scale = GetScale();
     RECT rt = RECT_MAKE(pos.x, pos.y, scale.x, scale.y);
@@ -135,4 +139,6 @@ void InputField::Render(HDC _dc)
     //SetCaretPos(10, 10);
 
     DrawText(_dc, m_wstr, m_limit, &rt, DT_SINGLELINE | DT_VCENTER | DT_CENTER);        // 리미트의 길이만큼만 출력
+
+    DeleteObject(currentFont);
 }

@@ -2,6 +2,7 @@
 #include "Start_Scene.h"
 //#include "Object.h"
 #include "Core.h"
+#include "SceneMgr.h"
 //#include "Player.h"
 //#include "Monster.h"
 //#include "KeyMgr.h"
@@ -11,6 +12,7 @@
 #include "UI.h"
 #include "Text.h"
 #include "InputField.h"
+#include "Button.h"
 
 //void Start_Scene::Init()
 //{
@@ -68,6 +70,12 @@
 //}
 
 Text* pText = new Text();		// 이거 변수 빼시죵
+InputField* pInputField1 = new InputField();
+InputField* pInputField2 = new InputField();
+InputField* pInputField3 = new InputField();
+Button* pHintBtn1 = new Button();
+Button* pHintBtn2 = new Button();
+bool puzzleSetting = false;
 
 void Start_Scene::Init()
 {
@@ -77,38 +85,70 @@ void Start_Scene::Init()
 
 	SetWindowText(Core::GetInst()->GetHwnd(), L"경기게임마이스터고 입학 프로그램 ver.1.0 우엥");
 
-	pText->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2 })));
-	pText->SetScale(Vec2(700, 100));
-	pText->AddText(L"안녕하십니까.");
-	pText->AddText(L"반갑습니다.");
-	pText->AddText(L"안녕히가십시오.");
+	pText->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, (Core::GetInst()->GetResolution().y / 2) - 50 })));
+	pText->SetScale(Vec2(1100, 200));
+	pText->AddText(L"\n본 프로그램은 여러분의 능력을 효과적으로 평가하여\n경기게임마이스터고등학교의 입학생을 선별하기 위해 제작되었습니다.");
+	pText->AddText(L"\n지원자분들은 나오는 퍼즐을 풀어 능력을 입증해주십시오.\n행운을 빕니다.");
+	pText->AddText(L"1. 입학을 위한 위치 암호를 순서대로 입력해주십시오.");
 	AddUI(pText, UI_GROUP::TEXT);
 
-
+	//Vec2 pos = Vec2({ Core::GetInst()->GetResolution().x - 50, Core::GetInst()->GetResolution().y - 90});
+	//pHintBtn1->SetPos(Vec2(pos.x, pos.y));
+	//pHintBtn1->SetScale(Vec2(70, 35));
+	//pHintBtn1->SetText(L"힌트 1");
+	//pHintBtn1->SetOpen("https://map.kakao.com/");
+	//AddUI(pHintBtn1, UI_GROUP::BUTTON);
+	//pHintBtn2->SetPos(Vec2(pos.x, pos.y + 50));
+	//pHintBtn2->SetScale(Vec2(70, 35));
+	//pHintBtn2->SetText(L"힌트 2");
+	//pHintBtn2->SetOpen("https://map.kakao.com/");
+	//AddUI(pHintBtn2, UI_GROUP::BUTTON);
 }
 
-		InputField* pInputField = new InputField();
-		bool e = false;
+
 void Start_Scene::Update()
 {
 	Scene::Update();
 
-	if (pText->GetComplete() && !e) {			// 텍스트가 끝나면
+	if (pText->GetComplete() && !puzzleSetting) {			// 텍스트가 끝나면
 		// 해주고 어쩌고
-		pInputField->SetPos(Vec2(1000, 200));
-		pInputField->SetScale(Vec2(200, 100));
-		pInputField->SetLimit(10);
-		AddUI(pInputField, UI_GROUP::INPUTFIELD);
-		e = true;
-		//pText->ReSet();
+		Vec2 pos = Vec2({ Core::GetInst()->GetResolution().x / 2, (Core::GetInst()->GetResolution().y / 2) + 50 });
+		pInputField1->SetPos(Vec2(pos.x - 300, pos.y));
+		pInputField1->SetScale(Vec2(200, 100));
+		pInputField1->SetLimit(10);
+		pInputField2->SetPos(Vec2(pos.x, pos.y));
+		pInputField2->SetScale(Vec2(200, 100));
+		pInputField2->SetLimit(10);
+		pInputField3->SetPos(Vec2(pos.x +300, pos.y));
+		pInputField3->SetScale(Vec2(200, 100));
+		pInputField3->SetLimit(10);
+		AddUI(pInputField1, UI_GROUP::INPUTFIELD);
+		AddUI(pInputField2, UI_GROUP::INPUTFIELD);
+		AddUI(pInputField3, UI_GROUP::INPUTFIELD);
+
+		pos = Vec2({ Core::GetInst()->GetResolution().x - 50, Core::GetInst()->GetResolution().y - 90 });
+		pHintBtn1->SetPos(Vec2(pos.x, pos.y));
+		pHintBtn1->SetScale(Vec2(70, 35));
+		pHintBtn1->SetText(L"힌트 1");
+		pHintBtn1->SetOpen("https://map.kakao.com/");
+		pHintBtn2->SetPos(Vec2(pos.x, pos.y + 50));
+		pHintBtn2->SetScale(Vec2(70, 35));
+		pHintBtn2->SetText(L"힌트 2");
+		pHintBtn2->SetOpen("https://translate.google.com/");
+		AddUI(pHintBtn1, UI_GROUP::BUTTON);
+		AddUI(pHintBtn2, UI_GROUP::BUTTON);
+
+		puzzleSetting = true;
 	}
 
-	if (pInputField->GetText() == "OK") {
-		SetWindowText(Core::GetInst()->GetHwnd(), L"헤헤");
+	if (puzzleSetting && PuzzleCheck()) {
 		m_puzzleOk = true;
 	}
 
 	if (m_puzzleOk) {
+
+		SceneMgr::GetInst()->LoadScene(L"Test_Scene");
+		//SetWindowText(Core::GetInst()->GetHwnd(), L"클리어!");
 
 	}
 }
@@ -123,3 +163,34 @@ void Start_Scene::Release()
 {
 	Scene::Release();
 }
+
+bool Start_Scene::PuzzleCheck()
+{
+	if ((pInputField1->GetText() == "ROUNDTRIP" && pInputField2->GetText() == "CARD" && pInputField3->GetText() == "TACK")
+		|| (pInputField1->GetText() == "ENTITY" && pInputField2->GetText() == "SLEEPY" && pInputField3->GetText() == "FRIENDLY")
+		|| (pInputField1->GetText() == "BULGE" && pInputField2->GetText() == "CEILING" && pInputField3->GetText() == "WORK")
+		|| (pInputField1->GetText() == "PAUSE" && pInputField2->GetText() == "SUBSCRIBER" && pInputField3->GetText() == "FORGOT"))
+	{
+		return true;
+	}
+	return false;
+}
+
+
+
+/*
+
+W3W 사이트 열어주고 경기게임마이스터 고등학교 주소 적어주면 클리어됨.
+
+///왕복.카드.압정
+///실체.졸렸다.친근
+///부푼.천장.일한
+///멈춤.가입자.깜빡
+
+구글 번역 사용
+///roundtrip.card.tack
+///entity.sleepy.friendly
+///bulge.ceiling.work
+///Pause.Subscriber.Forgot
+
+*/

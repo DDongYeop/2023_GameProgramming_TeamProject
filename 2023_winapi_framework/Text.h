@@ -7,7 +7,7 @@ class Text :
 {
 public:
     Text();
-    Text(float _printTime);
+    //Text(float _printTime);
     ~Text();
 public:
     void Update() override;

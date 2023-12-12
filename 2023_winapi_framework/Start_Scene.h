@@ -8,6 +8,7 @@ public:
     virtual void Update() override;
     virtual void Render(HDC _dc) override;
     virtual void Release() override;
+    bool PuzzleCheck();
 private:
     bool m_puzzleOk;
 };
