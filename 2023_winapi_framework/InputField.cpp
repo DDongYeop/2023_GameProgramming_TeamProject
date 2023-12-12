@@ -9,6 +9,7 @@ InputField::InputField()
     : m_limit(0)
     , m_focusMe(false)
     , m_useThis(true)
+    , m_showRECT(true)
     , m_wstr{}
     , m_count(0)
 {
@@ -135,7 +136,9 @@ void InputField::Render(HDC _dc)
     Vec2 pos = GetPos();
     Vec2 scale = GetScale();
     RECT rt = RECT_MAKE(pos.x, pos.y, scale.x, scale.y);
-    RECT_RENDER(pos.x, pos.y, scale.x, scale.y, _dc);
+    if (m_showRECT) {
+        RECT_RENDER(pos.x, pos.y, scale.x, scale.y, _dc);
+    }
 
    // SIZE size;
     //GetTextExtentPoint(_dc, m_wstr, wcslen(m_wstr), &size);

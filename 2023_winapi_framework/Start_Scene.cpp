@@ -158,7 +158,7 @@ void Start_Scene::Update()
 			time += fDT;
 			if (time > 1) {
 				//SetWindowText(Core::GetInst()->GetHwnd(), L"게임 클리어 들어옴");
-				SceneMgr::GetInst()->LoadScene(L"");
+				SceneMgr::GetInst()->LoadScene(L"Puzzle_1");
 			}
 		}
 	}

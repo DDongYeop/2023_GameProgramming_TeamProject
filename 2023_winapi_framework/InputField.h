@@ -31,10 +31,15 @@ public:
         m_useThis = false;
         m_wstr[m_count] = ' ';
     }
+    void ShowRECT(bool value) {
+        m_showRECT = value;
+    }
+    void SetFocus() { m_focusMe = true; };
 private:
     int m_limit;
     bool m_focusMe;
     bool m_useThis;
+    bool m_showRECT;
     wchar_t m_wstr[100];
     int m_count;
 };
