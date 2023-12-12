@@ -13,9 +13,11 @@ public:
     void Update() override;
     void Render(HDC _dc) override;
 public:
-    void ReSet(float fPrintTime = 0.15f);
+    void ReSet();
     void AddText(wstring text) { m_qPrintQueue.push(text); }
     bool GetComplete() { return m_complete; }
+    void NoStop() { m_stop = false; }       // 멈춤 해제
+    bool GetStop() { return m_stop; }
 private:
     float               m_fPrintTime;       // 한 글자가 나오는 시간
     float               m_fCurrentTime;
@@ -23,5 +25,6 @@ private:
     wstring             m_sPrintText;       // 지금 출력되고 있는 텍스트
     std::queue<wstring> m_qPrintQueue;      // 지금 가지고 있는 텍스트 큐
     bool                    m_complete;
+    bool                    m_stop;
 };
 

@@ -10,7 +10,8 @@
 #include <queue>
 
 Text::Text() 
-	: m_fPrintTime(0.15f), m_fCurrentTime(0.15f), m_sFrontText{}, m_sPrintText{}, m_complete(false)
+	: m_fPrintTime(0.1f), m_fCurrentTime(0.1f), m_sFrontText{}, m_sPrintText{}, m_complete(false)
+	, m_stop(false)
 {
 	m_qPrintQueue = std::queue<wstring>();
 	//AddFontResource(TEXT("Galmuri14 Regular.ttf"));
@@ -36,7 +37,7 @@ void Text::Update()
 	if (m_qPrintQueue.empty() && m_sPrintText == m_sFrontText && !m_complete) {
 		m_complete = true;
 		m_fCurrentTime = 0.0f;
-		m_fPrintTime = 1;		// 뭘 하든 이 시간이 지나야 사라짐. 나중에 변수로 빼도 되고
+		//m_fPrintTime = 1;		// 뭘 하든 이 시간이 지나야 사라짐. 나중에 변수로 빼도 되고
 	}
 
 	if (m_complete) {
@@ -45,7 +46,7 @@ void Text::Update()
 
 	if (KeyMgr::GetInst()->GetKey(KEY_TYPE::LBUTTON) == KEY_STATE::DOWN)		// 왼쪽 버튼이 눌리면
 	{
-		if (m_sPrintText.size() == m_sFrontText.size() && !m_qPrintQueue.empty())		// 만약 사이즈가 똑같으면, 글자가 다 넣어져 있다면. 그리고 큐가 비어있지 않으면
+		if (m_sPrintText.size() == m_sFrontText.size() && !m_qPrintQueue.empty() && !m_stop)		// 만약 사이즈가 똑같으면, 글자가 다 넣어져 있다면. 그리고 큐가 비어있지 않으면
 		{
 			m_sFrontText = m_qPrintQueue.front();
 			m_sPrintText = L"";
@@ -54,6 +55,11 @@ void Text::Update()
 		else
 		{
 			m_sPrintText = m_sFrontText;			// 바로 글자 다 넣어줌.
+			if (!m_qPrintQueue.empty() && m_qPrintQueue.front() == L"STOP")		// 만약 다음것이 스탑이면
+			{
+				m_stop = true;
+				m_qPrintQueue.pop();
+			}
 		}
 
 	}
@@ -76,6 +82,14 @@ void Text::Render(HDC _dc)
 			{
 				if (m_sPrintText.size() < m_sFrontText.size())			// 지금의 글자가 더 많으면
 					m_sPrintText += m_sFrontText[m_sPrintText.size()];		// 사이즈가 인덱스보다 더 밀리니까? 글자가 더 나와짐
+				
+				if (m_sPrintText == m_sFrontText) {
+					if (!m_qPrintQueue.empty() && m_qPrintQueue.front() == L"STOP")		// 만약 다음것이 스탑이면
+					{
+						m_stop = true;
+						m_qPrintQueue.pop();
+					}
+				}
 			}
 			else if (!m_qPrintQueue.empty())		// 글자의 사이즈가 0이고  큐가 비어있지 않으면, 즉 가장 처음의 글자이면
 			{
@@ -101,10 +115,11 @@ void Text::Render(HDC _dc)
 	DeleteObject(currentFont);
 }
 
-void Text::ReSet(float fPrintTime)
+void Text::ReSet()
 {
-	m_fPrintTime = fPrintTime;
-	m_fCurrentTime = 0.0f;
+	m_fCurrentTime = 0.1f;
+	//m_sFrontText = {};
+	//m_sPrintText = {};
 	m_qPrintQueue = std::queue<wstring>();
 	m_complete = false;
 }

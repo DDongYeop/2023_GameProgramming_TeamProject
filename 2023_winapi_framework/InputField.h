@@ -26,9 +26,15 @@ public:
         }
         return temp;
     }
+    void Lock() 
+    {
+        m_useThis = false;
+        m_wstr[m_count] = ' ';
+    }
 private:
     int m_limit;
     bool m_focusMe;
+    bool m_useThis;
     wchar_t m_wstr[100];
     int m_count;
 };

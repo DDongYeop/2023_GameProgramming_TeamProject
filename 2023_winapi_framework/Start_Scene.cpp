@@ -3,6 +3,7 @@
 //#include "Object.h"
 #include "Core.h"
 #include "SceneMgr.h"
+#include "TimeMgr.h"
 //#include "Player.h"
 //#include "Monster.h"
 //#include "KeyMgr.h"
@@ -76,12 +77,12 @@ InputField* pInputField3 = new InputField();
 Button* pHintBtn1 = new Button();
 Button* pHintBtn2 = new Button();
 bool puzzleSetting = false;
+float time = 0;
 
 void Start_Scene::Init()
 {
-	// 변수 초기화들
+	// 변수 초기화
 	m_puzzleOk = false;
-
 
 	SetWindowText(Core::GetInst()->GetHwnd(), L"경기게임마이스터고 입학 프로그램 ver.1.0 우엥");
 
@@ -90,6 +91,9 @@ void Start_Scene::Init()
 	pText->AddText(L"\n본 프로그램은 여러분의 능력을 효과적으로 평가하여\n경기게임마이스터고등학교의 입학생을 선별하기 위해 제작되었습니다.");
 	pText->AddText(L"\n지원자분들은 나오는 퍼즐을 풀어 능력을 입증해주십시오.\n행운을 빕니다.");
 	pText->AddText(L"1. 입학을 위한 위치 암호를 순서대로 입력해주십시오.");
+	pText->AddText(L"STOP");			// 멈추기
+	pText->AddText(L"잘하셨습니다.");
+	pText->AddText(L"바로 다음단계로 넘어가겠습니다.");
 	AddUI(pText, UI_GROUP::TEXT);
 
 	//Vec2 pos = Vec2({ Core::GetInst()->GetResolution().x - 50, Core::GetInst()->GetResolution().y - 90});
@@ -110,7 +114,7 @@ void Start_Scene::Update()
 {
 	Scene::Update();
 
-	if (pText->GetComplete() && !puzzleSetting) {			// 텍스트가 끝나면
+	if (pText->GetStop() && !puzzleSetting) {			// 텍스트가 끝나면
 		// 해주고 어쩌고
 		Vec2 pos = Vec2({ Core::GetInst()->GetResolution().x / 2, (Core::GetInst()->GetResolution().y / 2) + 50 });
 		pInputField1->SetPos(Vec2(pos.x - 300, pos.y));
@@ -146,10 +150,17 @@ void Start_Scene::Update()
 	}
 
 	if (m_puzzleOk) {
-
-		SceneMgr::GetInst()->LoadScene(L"Test_Scene");
-		//SetWindowText(Core::GetInst()->GetHwnd(), L"클리어!");
-
+		pText->NoStop();
+		pInputField1->Lock();
+		pInputField2->Lock();
+		pInputField3->Lock();
+		if (pText->GetComplete()) {
+			time += fDT;
+			if (time > 1) {
+				//SetWindowText(Core::GetInst()->GetHwnd(), L"게임 클리어 들어옴");
+				SceneMgr::GetInst()->LoadScene(L"");
+			}
+		}
 	}
 }
 // 이거 실행 순서에 따라 return 해주면 좋을까? 그래서 배열을 후에 사용하는 것부터 처음에 나오는거지. 좀 생각해보기!
@@ -169,7 +180,8 @@ bool Start_Scene::PuzzleCheck()
 	if ((pInputField1->GetText() == "ROUNDTRIP" && pInputField2->GetText() == "CARD" && pInputField3->GetText() == "TACK")
 		|| (pInputField1->GetText() == "ENTITY" && pInputField2->GetText() == "SLEEPY" && pInputField3->GetText() == "FRIENDLY")
 		|| (pInputField1->GetText() == "BULGE" && pInputField2->GetText() == "CEILING" && pInputField3->GetText() == "WORK")
-		|| (pInputField1->GetText() == "PAUSE" && pInputField2->GetText() == "SUBSCRIBER" && pInputField3->GetText() == "FORGOT"))
+		|| (pInputField1->GetText() == "PAUSE" && pInputField2->GetText() == "SUBSCRIBER" && pInputField3->GetText() == "FORGOT")//)
+		|| (pInputField1->GetText() == "A" && pInputField2->GetText() == "B" && pInputField3->GetText() == "C"))			// 이 출 지우기
 	{
 		return true;
 	}
