@@ -100,7 +100,7 @@ void Core::Render()
 	//Rectangle(m_hbackDC, -1,-1,m_ptResolution.x +1,m_ptResolution.y + 1);
 	PatBlt(m_hbackDC, 0, 0, m_ptResolution.x, m_ptResolution.y, WHITENESS);
 	
-	BackGroundMgr::GetInst()->Render(m_hbackDC);
+	//BackGroundMgr::GetInst()->Render(m_hbackDC);
 	SceneMgr::GetInst()->Render(m_hbackDC);
 	/*Vec2 vPos = m_obj.GetPos();
 	Vec2 vScale = m_obj.GetScale();
@@ -111,7 +111,7 @@ void Core::Render()
 	//static wchar_t mousebuf[100] = {};
 	//swprintf_s(mousebuf, L"Mouse: x %d, y: %d", mousepos.x, mousepos.y);
 	//TextOut(m_hbackDC, 10, 10, mousebuf, wcslen(mousebuf));
-	//FadeMgr::GetInst()->Render(m_hbackDC, (HINSTANCE)m_hWnd);
+	FadeMgr::GetInst()->Render(m_hbackDC); 
 	// 3. ¿Å±ä´Ù.
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y,
 		m_hbackDC, 0, 0, SRCCOPY);
