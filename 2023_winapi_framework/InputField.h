@@ -20,15 +20,26 @@ public:
     }
     std::string GetText() {
         std::string temp;
-        for (int i = 0; i < m_limit; i++)
+        for (int i = 0; i < m_count; i++)
         {
             temp += m_wstr[i];
         }
         return temp;
     }
+    void Lock() 
+    {
+        m_useThis = false;
+        m_wstr[m_count] = ' ';
+    }
+    void ShowRECT(bool value) {
+        m_showRECT = value;
+    }
+    void SetFocus() { m_focusMe = true; };
 private:
     int m_limit;
     bool m_focusMe;
+    bool m_useThis;
+    bool m_showRECT;
     wchar_t m_wstr[100];
     int m_count;
 };

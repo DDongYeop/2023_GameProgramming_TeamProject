@@ -32,8 +32,8 @@ enum class OBJECT_GROUP
 enum class UI_GROUP
 {
 	TEXT,
-	BUTTON,
 	INPUTFIELD,
+	BUTTON,
 	END = 5
 };
 

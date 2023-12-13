@@ -74,6 +74,9 @@
     <Filter Include="Engine\03. Manager\OpenMgr">
       <UniqueIdentifier>{e8917ea2-a2bf-4ed1-925d-3612a9c51446}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\PuzzleScene">
+      <UniqueIdentifier>{d2615bef-44c5-484e-bc9e-d5aa1e615405}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -187,6 +190,9 @@
     <ClInclude Include="OpenMgr.h">
       <Filter>Engine\03. Manager\OpenMgr</Filter>
     </ClInclude>
+    <ClInclude Include="Puzzle_1.h">
+      <Filter>Engine\05. Scene\PuzzleScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -294,6 +300,9 @@
     </ClCompile>
     <ClCompile Include="OpenMgr.cpp">
       <Filter>Engine\03. Manager\OpenMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Puzzle_1.cpp">
+      <Filter>Engine\05. Scene\PuzzleScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
