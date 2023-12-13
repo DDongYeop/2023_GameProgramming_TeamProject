@@ -11,10 +11,12 @@ void SceneMgr::Init()
 	//RegisterScene(L"Game_Scene", std::make_shared<Game_Scene>());
 	RegisterScene(L"Start_Scene", std::make_shared<Start_Scene>());
 	RegisterScene(L"Puzzle_1", std::make_shared<Puzzle_1>());
+	//RegisterScene(L"Puzzle_2", std::make_shared<Puzzle_2>());
 
-	//RegisterScene(L"Test_Scene", std::make_shared<Test_Scene>());
+	RegisterScene(L"Test_Scene", std::make_shared<Test_Scene>());
 
 	// Ã¹ ¾À ÁöÁ¤
+	//LoadScene(L"Test_Scene");
 	//LoadScene(L"Start_Scene");
 	LoadScene(L"Puzzle_1");
 }
