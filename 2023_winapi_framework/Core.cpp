@@ -9,7 +9,6 @@
 #include "EventMgr.h"
 #include "FileMgr.h"
 #include "OpenMgr.h"
-#include "BackGroundMgr.h"
 
 bool Core::Init(HWND _hWnd, POINT _ptResolution)
 {
@@ -41,8 +40,6 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	ResMgr::GetInst()->Init();
 	SceneMgr::GetInst()->Init();
 	FileMgr::GetInst()->Init();
-
-	BackGroundMgr::GetInst()->SetColor(RGB(0, 255, 255));
 
 	return true;
 }
@@ -95,8 +92,7 @@ void Core::Render()
 	// 칠한다.
 	//Rectangle(m_hbackDC, -1,-1,m_ptResolution.x +1,m_ptResolution.y + 1);
 	PatBlt(m_hbackDC, 0, 0, m_ptResolution.x, m_ptResolution.y, WHITENESS);
-	
-	//BackGroundMgr::GetInst()->Render(m_hbackDC);
+
 	SceneMgr::GetInst()->Render(m_hbackDC);
 	/*Vec2 vPos = m_obj.GetPos();
 	Vec2 vScale = m_obj.GetScale();
@@ -107,6 +103,7 @@ void Core::Render()
 	//static wchar_t mousebuf[100] = {};
 	//swprintf_s(mousebuf, L"Mouse: x %d, y: %d", mousepos.x, mousepos.y);
 	//TextOut(m_hbackDC, 10, 10, mousebuf, wcslen(mousebuf));
+
 	// 3. 옮긴다.
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y,
 		m_hbackDC, 0, 0, SRCCOPY);

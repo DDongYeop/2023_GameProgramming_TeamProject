@@ -84,7 +84,7 @@ void Start_Scene::Init()
 	// 변수 초기화
 	m_puzzleOk = false;
 
-	SetWindowText(Core::GetInst()->GetHwnd(), L"경기게임마이스터고 입학 프로그램 ver.1.0 우엥");
+	SetWindowText(Core::GetInst()->GetHwnd(), L"경기게임마이스터고 입학 프로그램 ver.1.0");
 
 	pText->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, (Core::GetInst()->GetResolution().y / 2) - 50 })));
 	pText->SetScale(Vec2(1100, 200));
