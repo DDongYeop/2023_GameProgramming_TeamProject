@@ -206,6 +206,9 @@
     <Image Include="2023_winapi_framework.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="..\Output\bin\Res\Texture\Icon.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">

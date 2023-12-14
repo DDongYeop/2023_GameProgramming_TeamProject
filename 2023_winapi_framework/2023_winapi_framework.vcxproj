@@ -244,6 +244,7 @@
     <ResourceCompile Include="2023_winapi_framework.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Output\bin\Res\Texture\Icon.ico" />
     <Image Include="2023_winapi_framework.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
