@@ -12,6 +12,7 @@ InputField::InputField()
     , m_showRECT(true)
     , m_wstr{}
     , m_count(0)
+    , m_number(false)
 {
     //HWND hWnd = Core::GetInst()->GetHwnd();
     //CreateCaret(hWnd, nullptr, 5, 15);
@@ -99,14 +100,23 @@ void InputField::Update()
                     char input = KeyMgr::GetInst()->GetKeyChar(i);
                     //wstring b = std::to_wstring((int)input);
                     //SetWindowText(Core::GetInst()->GetHwnd(), b.c_str());
-                    if (input >= 65 && input <= 90 && m_count < m_limit) {       // 키보드인 경우와 리미트를 넘지 않았을 때
-                        m_wstr[m_count] = input;
-                        m_count++;
-                        m_wstr[m_count] = '|';
+                    if (!m_number) {
+                        if (input >= 65 && input <= 90 && m_count < m_limit) {       // 키보드인 경우와 리미트를 넘지 않았을 때
+                            m_wstr[m_count] = input;
+                            m_count++;
+                            m_wstr[m_count] = '|';
+                        }
+                    }
+                    else {
+                        if (input >= 96 && input <= 105 && m_count < m_limit) {
+                            m_wstr[m_count] = input - 48;
+                            m_count++;
+                            m_wstr[m_count] = '|';
+                        }
                     }
                 }
             }
-            if (GetAsyncKeyState(VK_BACK) & 0x8000) {
+            if (GetAsyncKeyState(VK_BACK) & 0x8000) {       // 뒤로가는 키 누르면. 지워지게
                 if (m_count > 0) {      // 0보다 큰 상태일 때만
                     if (m_wstr[m_count] == '|' || m_wstr[m_count] == ' ') {        // 처음에
                         m_wstr[m_count] = ' ';

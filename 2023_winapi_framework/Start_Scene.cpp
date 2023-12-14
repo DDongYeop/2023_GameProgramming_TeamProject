@@ -153,7 +153,7 @@ bool Start_Scene::PuzzleCheck()
 		|| (pInputField1->GetText() == "ENTITY" && pInputField2->GetText() == "SLEEPY" && pInputField3->GetText() == "FRIENDLY")
 		|| (pInputField1->GetText() == "BULGE" && pInputField2->GetText() == "CEILING" && pInputField3->GetText() == "WORK")
 		|| (pInputField1->GetText() == "PAUSE" && pInputField2->GetText() == "SUBSCRIBER" && pInputField3->GetText() == "FORGOT")//)
-		|| (pInputField1->GetText() == "A" && pInputField2->GetText() == "B" && pInputField3->GetText() == "C"))			// 이 출 지우기
+		|| (pInputField1->GetText() == "A" && pInputField2->GetText() == "B" && pInputField3->GetText() == "C"))			// 이 줄 지우기
 	{
 		return true;
 	}

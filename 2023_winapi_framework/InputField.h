@@ -34,7 +34,8 @@ public:
     void ShowRECT(bool value) {
         m_showRECT = value;
     }
-    void SetFocus() { m_focusMe = true; };
+    void SetFocus() { m_focusMe = true; }
+    void SetNumber() { m_number = true; }
 private:
     int m_limit;
     bool m_focusMe;
@@ -42,4 +43,5 @@ private:
     bool m_showRECT;
     wchar_t m_wstr[100];
     int m_count;
+    bool m_number;
 };

@@ -25,8 +25,8 @@ void SceneMgr::Init()
 	//LoadScene(L"Start_Scene");
 	//LoadScene(L"Intro");
 	//LoadScene(L"Puzzle_1");
-	LoadScene(L"Puzzle_2");
-	//LoadScene(L"Puzzle_3");
+	//LoadScene(L"Puzzle_2");
+	LoadScene(L"Puzzle_3");
 }
 
 void SceneMgr::Update()

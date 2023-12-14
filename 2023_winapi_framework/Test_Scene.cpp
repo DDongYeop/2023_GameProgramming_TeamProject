@@ -31,6 +31,7 @@ void Test_Scene::Init()
 	InputField* pInputField = new InputField;
 	pInputField->SetPos(Vec2(1000, 200));
 	pInputField->SetScale(Vec2(200, 100));
+	pInputField->SetNumber();
 	pInputField->SetLimit(10);
 	AddUI(pInputField, UI_GROUP::INPUTFIELD);
 
