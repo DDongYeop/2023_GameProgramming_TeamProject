@@ -4,13 +4,14 @@
 #include "Start_Scene.h"
 #include "Puzzle_1.h"
 #include "Test_Scene.h"
+#include "Intro.h"
 void SceneMgr::Init()
 {
 	m_pCurScene = nullptr;
 	// ¾À µî·Ï
 	//RegisterScene(L"Game_Scene", std::make_shared<Game_Scene>());
 	RegisterScene(L"Start_Scene", std::make_shared<Start_Scene>());
-	RegisterScene(L"Puzzle_1", std::make_shared<Puzzle_1>());
+	RegisterScene(L"Intro", std::make_shared<Intro>());
 	//RegisterScene(L"Puzzle_2", std::make_shared<Puzzle_2>());
 
 	RegisterScene(L"Test_Scene", std::make_shared<Test_Scene>());
@@ -18,7 +19,7 @@ void SceneMgr::Init()
 	// Ã¹ ¾À ÁöÁ¤
 	//LoadScene(L"Test_Scene");
 	//LoadScene(L"Start_Scene");
-	LoadScene(L"Puzzle_1");
+	LoadScene(L"Intro");
 }
 
 void SceneMgr::Update()

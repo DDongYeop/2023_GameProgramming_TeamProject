@@ -26,6 +26,7 @@ void Intro::Update()
 void Intro::Render(HDC _dc)
 {
 	Scene::Render(_dc);
+
 	//Texture* pTex = ResMgr::GetInst()->TexLoad(L"GGM_Logo", L"Texture\\GGM_Logo.bmp");
 }
 

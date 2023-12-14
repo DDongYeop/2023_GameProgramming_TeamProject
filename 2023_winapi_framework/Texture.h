@@ -11,6 +11,7 @@ public:
     void Load(const wstring& _strFilePath);
     const LONG& GetWidth() const { return (m_bitInfo.bmWidth); }
     const LONG& GetHeight() const { return (m_bitInfo.bmHeight); }
+    const HBITMAP& GetBitmap() const { return m_hBit; }
     const HDC& GetDC() const { return m_hDC; }
 private:
     HBITMAP m_hBit;
