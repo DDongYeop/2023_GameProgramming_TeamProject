@@ -194,6 +194,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Puzzle_1.h" />
+    <ClInclude Include="Puzzle_2.h" />
     <ClInclude Include="Puzzle_3.h" />
     <ClInclude Include="Res.h" />
     <ClInclude Include="ResMgr.h" />
@@ -234,6 +235,7 @@
     <ClCompile Include="PathMgr.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Puzzle_1.cpp" />
+    <ClCompile Include="Puzzle_2.cpp" />
     <ClCompile Include="Puzzle_3.cpp" />
     <ClCompile Include="Res.cpp" />
     <ClCompile Include="ResMgr.cpp" />

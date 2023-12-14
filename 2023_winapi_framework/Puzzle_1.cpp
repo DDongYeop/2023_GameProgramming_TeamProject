@@ -5,26 +5,14 @@
 #include "KeyMgr.h"
 #include "SceneMgr.h"
 
-#include "UI.h"
-#include "InputField.h"
-#include "Button.h"
-
-float m_fCurrentTime, m_fPrintTime;
-wstring m_title, m_nowText;
-bool m_textOk, m_btnOk;		// 제목 텍스트가 입력됬으면 true 임. 버튼이 생생되면 true 임
-vector<InputField*> m_inputFields;
-Button* m_gameBtn;
-
-float m_changeSceneTime, m_changeTime;
-
-void Puzzle_1::Init()
+void Puzzle_1::Init()		// 여기선 그냥 인잇바로 해주자. 값으로 넣어주자. 클래스 내에서 선언과 초기화를 하는건 UI 를 사용하는 애들만 사용하는거야.
 {
 	m_fCurrentTime = 0.1f;
 	m_fPrintTime = 0.1f;
 	m_textOk = false;
 	m_btnOk = false;
 
-	m_changeSceneTime = 1.6f;
+	m_changeSceneTime = 2.1f;
 	m_changeTime = 0.0f;
 
 	m_title = L"2. GMAE을 찾아서 눌러주세요.";
@@ -104,11 +92,11 @@ void Puzzle_1::Update()
 		}
 	}
 
-	if (m_puzzleOk) {
+	if (m_puzzleOk) {			// 얘는 하드코딩. 텍스트가 무조건 입력되니까. 다른건 텍스트가 끝났는지 판단해서 씬 변경해주고 있음.
 		m_changeTime += fDT;
 		if (m_changeTime > m_changeSceneTime) {
-			//SceneMgr::GetInst()->LoadScene(L"Puzzle_2");
-			SceneMgr::GetInst()->LoadScene(L"Test_Scene");
+			SceneMgr::GetInst()->LoadScene(L"Puzzle_2");
+			//SceneMgr::GetInst()->LoadScene(L"Test_Scene");
 		}
 	}
 
