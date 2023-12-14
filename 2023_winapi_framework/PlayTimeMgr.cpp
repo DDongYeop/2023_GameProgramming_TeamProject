@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "PlayTimeMgr.h"
 #include "TimeMgr.h"
+#include "SceneMgr.h"
 
 void PlayTimeMgr::Init()
 {
@@ -12,4 +13,7 @@ void PlayTimeMgr::Update()
 {
 	if (m_bIsPlay)
 		m_fCurrentPlayTime += fDT;
+
+	if (m_fCurrentPlayTime >= 300)
+		SceneMgr::GetInst()->LoadScene(L"EndScene");
 }

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Puzzle_3.h"
 #include "FileMgr.h"
+#include "SceneMgr.h"
 
 void Puzzle_3::Init()
 {
@@ -13,14 +14,7 @@ void Puzzle_3::Update()
 	wstring path = L"GGM\\2_Grade\\Class_2\\";
 	wstring name = L"Light.txt";
 	if (FileMgr::GetInst()->Exist(path, name))
-	{
-		//¾ÀÀÌµ¿
-		int a = 1;
-	}
-	else
-	{
-		//¾ø´ç ¤» 
-	}
+		SceneMgr::GetInst()->LoadScene(L"EndScene");
 }
 
 void Puzzle_3::Render(HDC _dc)

@@ -214,6 +214,9 @@
     <ClInclude Include="PlayTimeMgr.h">
       <Filter>Engine\03. Manager\PlayTimeMgr</Filter>
     </ClInclude>
+    <ClInclude Include="EndScene.h">
+      <Filter>Engine\05. Scene\MainScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -342,6 +345,9 @@
     </ClCompile>
     <ClCompile Include="PlayTimeMgr.cpp">
       <Filter>Engine\03. Manager\PlayTimeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="EndScene.cpp">
+      <Filter>Engine\05. Scene\MainScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

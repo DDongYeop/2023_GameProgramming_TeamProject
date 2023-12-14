@@ -6,6 +6,7 @@
 #include "FadeMgr.h"
 #include "TimeMgr.h"
 #include "SceneMgr.h"
+#include "PlayTimeMgr.h"
 
 GGM_Logo::GGM_Logo() 
 {
@@ -17,7 +18,7 @@ GGM_Logo::GGM_Logo()
 	m_Bf.SourceConstantAlpha = 100;
 
 	m_pTex = ResMgr::GetInst()->TexLoad(L"GGM_Logo", L"Texture\\GGM_Logo.bmp");
-	m_fFadeValue = 300;
+	m_fFadeValue = 350;
 }
 
 GGM_Logo::~GGM_Logo()
@@ -32,7 +33,8 @@ void GGM_Logo::Update()
 	if (m_fFadeValue <= -75)
 	{
 		FadeMgr::GetInst()->Update(255);
-		SceneMgr::GetInst()->LoadScene(L"Start_Scene");
+		PlayTimeMgr::GetInst()->TimerStart();
+		SceneMgr::GetInst()->LoadScene(L"EndScene");
 	}
 }
 
