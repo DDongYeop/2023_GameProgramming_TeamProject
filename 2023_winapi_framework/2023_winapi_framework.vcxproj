@@ -193,6 +193,7 @@
     <ClInclude Include="PathMgr.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayTimeMgr.h" />
     <ClInclude Include="Puzzle_1.h" />
     <ClInclude Include="Puzzle_3.h" />
     <ClInclude Include="Res.h" />
@@ -233,6 +234,7 @@
     <ClCompile Include="OpenMgr.cpp" />
     <ClCompile Include="PathMgr.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayTimeMgr.cpp" />
     <ClCompile Include="Puzzle_1.cpp" />
     <ClCompile Include="Puzzle_3.cpp" />
     <ClCompile Include="Res.cpp" />

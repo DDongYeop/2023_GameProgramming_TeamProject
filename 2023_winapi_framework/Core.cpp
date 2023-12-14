@@ -10,6 +10,7 @@
 #include "FileMgr.h"
 #include "OpenMgr.h"
 #include "FadeMgr.h"
+#include "PlayTimeMgr.h"
 #include "Intro.h"
 
 bool Core::Init(HWND _hWnd, POINT _ptResolution)
@@ -42,6 +43,7 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	ResMgr::GetInst()->Init();
 	SceneMgr::GetInst()->Init();
 	FileMgr::GetInst()->Init();
+	PlayTimeMgr::GetInst()->Init();
 
 	return true;
 }
@@ -69,6 +71,7 @@ void Core::Update()
 	KeyMgr::GetInst()->Update();
 	SceneMgr::GetInst()->Update();
 	CollisionMgr::GetInst()->Update();
+	PlayTimeMgr::GetInst()->Update();
 
 	//	Vec2 vPos = m_obj.GetPos();
 	//

@@ -80,6 +80,9 @@
     <Filter Include="Engine\03. Manager\FadeMgr">
       <UniqueIdentifier>{48b45934-cd21-4b62-be0c-9c90573f276e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\PlayTimeMgr">
+      <UniqueIdentifier>{26b5e4d5-f359-4440-810e-44756f6d93a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -208,6 +211,9 @@
     <ClInclude Include="Puzzle_3.h">
       <Filter>Engine\05. Scene\PuzzleScene</Filter>
     </ClInclude>
+    <ClInclude Include="PlayTimeMgr.h">
+      <Filter>Engine\03. Manager\PlayTimeMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -333,6 +339,9 @@
     </ClCompile>
     <ClCompile Include="Puzzle_3.cpp">
       <Filter>Engine\05. Scene\PuzzleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayTimeMgr.cpp">
+      <Filter>Engine\03. Manager\PlayTimeMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
