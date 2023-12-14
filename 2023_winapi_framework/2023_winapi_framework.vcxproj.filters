@@ -77,6 +77,9 @@
     <Filter Include="Engine\05. Scene\PuzzleScene">
       <UniqueIdentifier>{d2615bef-44c5-484e-bc9e-d5aa1e615405}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\FadeMgr">
+      <UniqueIdentifier>{48b45934-cd21-4b62-be0c-9c90573f276e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -193,6 +196,18 @@
     <ClInclude Include="Puzzle_1.h">
       <Filter>Engine\05. Scene\PuzzleScene</Filter>
     </ClInclude>
+    <ClInclude Include="GGM_Logo.h">
+      <Filter>Engine\04. Object\MainObject</Filter>
+    </ClInclude>
+    <ClInclude Include="FadeMgr.h">
+      <Filter>Engine\03. Manager\FadeMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Intro.h">
+      <Filter>Engine\05. Scene\MainScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Puzzle_3.h">
+      <Filter>Engine\05. Scene\PuzzleScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -305,6 +320,18 @@
       <Filter>Engine\03. Manager\OpenMgr</Filter>
     </ClCompile>
     <ClCompile Include="Puzzle_1.cpp">
+      <Filter>Engine\05. Scene\PuzzleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="GGM_Logo.cpp">
+      <Filter>Engine\04. Object\MainObject</Filter>
+    </ClCompile>
+    <ClCompile Include="FadeMgr.cpp">
+      <Filter>Engine\03. Manager\FadeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Intro.cpp">
+      <Filter>Engine\05. Scene\MainScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Puzzle_3.cpp">
       <Filter>Engine\05. Scene\PuzzleScene</Filter>
     </ClCompile>
   </ItemGroup>
