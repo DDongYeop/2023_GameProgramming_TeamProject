@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "Test_Scene.h"
 #include "Object.h"
-#include "Core.h"
+#include "Core.h"		// 지우기
 #include "Player.h"			// 지우기
 
-#include "UI.h"
+//#include "UI.h"		// ?? 이거 왜 들어가지....?
 #include "Text.h"
 #include "Button.h"
 #include "InputField.h"
