@@ -9,7 +9,6 @@
 #include "EventMgr.h"
 #include "FileMgr.h"
 #include "OpenMgr.h"
-#include "FadeMgr.h"
 #include "BackGroundMgr.h"
 
 bool Core::Init(HWND _hWnd, POINT _ptResolution)
@@ -42,9 +41,7 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	ResMgr::GetInst()->Init();
 	SceneMgr::GetInst()->Init();
 	FileMgr::GetInst()->Init();
-	FadeMgr::GetInst()->Init();
 
-	FadeMgr::GetInst()->Fade(true);
 	BackGroundMgr::GetInst()->SetColor(RGB(0, 255, 255));
 
 	return true;
@@ -74,7 +71,6 @@ void Core::Update()
 	KeyMgr::GetInst()->Update();
 	SceneMgr::GetInst()->Update();
 	CollisionMgr::GetInst()->Update();
-	FadeMgr::GetInst()->Update();
 	//	Vec2 vPos = m_obj.GetPos();
 	//
 	////	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
@@ -111,7 +107,6 @@ void Core::Render()
 	//static wchar_t mousebuf[100] = {};
 	//swprintf_s(mousebuf, L"Mouse: x %d, y: %d", mousepos.x, mousepos.y);
 	//TextOut(m_hbackDC, 10, 10, mousebuf, wcslen(mousebuf));
-	FadeMgr::GetInst()->Render(m_hbackDC); 
 	// 3. ¿Å±ä´Ù.
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y,
 		m_hbackDC, 0, 0, SRCCOPY);
