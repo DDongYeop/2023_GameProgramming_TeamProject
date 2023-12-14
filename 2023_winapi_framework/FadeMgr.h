@@ -5,7 +5,7 @@ class FadeMgr
 	SINGLE(FadeMgr);
 public:
 	void Init();
-	void Update();
+	void Update(float value);
 	void Render(HDC _dc);
 public:
 	void Fade(bool value);
