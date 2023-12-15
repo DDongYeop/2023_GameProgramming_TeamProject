@@ -27,10 +27,10 @@ void SceneMgr::Init()
 	// 첫 시작 씬 로드
 	//LoadScene(L"Test_Scene");
 	//LoadScene(L"Start_Scene");
-	//LoadScene(L"Intro");
+	LoadScene(L"Intro");
 	//LoadScene(L"Puzzle_1");
 	//LoadScene(L"Puzzle_2");
-	LoadScene(L"Puzzle_3");
+	//LoadScene(L"Puzzle_3");
 }
 
 void SceneMgr::Update()

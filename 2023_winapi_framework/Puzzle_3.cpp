@@ -11,7 +11,7 @@ void Puzzle_3::Init()
 
 	pText->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, (Core::GetInst()->GetResolution().y / 2) - 75 })));
 	pText->SetScale(Vec2(1100, 200));
-	pText->AddText(L"4. 반마다 결석자 명단이 일주일 간격으로 적혀있습니다.\n각 주마다 특정 번호를 찾아내어 4자리의 암호를 입력해주십시오.");
+	pText->AddText(L"4. 반마다 지각한 학생의 명단이 일주일 간격으로 적혀있습니다.\n각 주마다 특정 번호를 찾아내어 4자리의 암호를 입력해주십시오.");
 	pText->AddText(L"STOP");
 	pText->AddText(L"잘하셨습니다.");
 	AddUI(pText, UI_GROUP::TEXT);
@@ -66,7 +66,6 @@ void Puzzle_3::Update()
 		pInputField3->Lock();
 		pInputField4->Lock();		// 하나가 다 맞으면 바로 표시하고 락해주기? 아 그럼 애들이 찍겠구나, 그럼 다 입력하면 표시가 되게 해주기!
 		//뒤에 막 초록색 네모가 생긴다거나. 막 좌물쇠 풀리는 소리가 들린다거나
-		SetWindowText(Core::GetInst()->GetHwnd(), L"크킁퍼즐품");
 	}
 
 	if (m_puzzleOk) {
@@ -74,7 +73,7 @@ void Puzzle_3::Update()
 		if (pText->GetComplete()) {
 			time += fDT;
 			if (time > 1.5f) {
-				//SceneMgr::GetInst()->LoadScene(L"End_Scene");
+				SceneMgr::GetInst()->LoadScene(L"EndScene");
 			}
 		}
 	}
