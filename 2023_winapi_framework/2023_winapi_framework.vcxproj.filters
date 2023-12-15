@@ -216,6 +216,8 @@
     </ClInclude>
     <ClInclude Include="EndScene.h">
       <Filter>Engine\05. Scene\MainScene</Filter>
+    <ClInclude Include="Puzzle_2.h">
+      <Filter>Engine\05. Scene\PuzzleScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -348,6 +350,8 @@
     </ClCompile>
     <ClCompile Include="EndScene.cpp">
       <Filter>Engine\05. Scene\MainScene</Filter>
+    <ClCompile Include="Puzzle_2.cpp">
+      <Filter>Engine\05. Scene\PuzzleScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
