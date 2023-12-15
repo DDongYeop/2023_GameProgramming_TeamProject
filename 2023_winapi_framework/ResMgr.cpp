@@ -65,6 +65,12 @@ void ResMgr::Init()
         m_pSystem->init((int)SOUND_CHANNEL::END, FMOD_INIT_NORMAL, nullptr);
 }
 
+/// <summary>
+/// 사운드 파일 탐색기에서 가져오기
+/// </summary>
+/// <param name="_strKey">불릴 이름</param>
+/// <param name="_strReleativePath">위치</param>
+/// <param name="_IsLoop">반복 여부</param>
 void ResMgr::LoadSound(const wstring& _strKey, const wstring& _strReleativePath, bool _IsLoop)
 {
     if (FindSound(_strKey))

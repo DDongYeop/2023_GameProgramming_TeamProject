@@ -45,6 +45,9 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	SceneMgr::GetInst()->Init();
 	FileMgr::GetInst()->Init();
 
+	ResMgr::GetInst()->LoadSound(L"BackGround", L"Res\\Sound\\OnlyOne.mp3", true);
+	ResMgr::GetInst()->Play(L"BackGround");
+
 	return true;
 }
 

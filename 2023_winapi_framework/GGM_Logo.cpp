@@ -34,7 +34,7 @@ void GGM_Logo::Update()
 	{
 		FadeMgr::GetInst()->Update(255);
 		PlayTimeMgr::GetInst()->TimerStart();
-		SceneMgr::GetInst()->LoadScene(L"EndScene");
+		SceneMgr::GetInst()->LoadScene(L"Start_Scene");
 	}
 }
 
