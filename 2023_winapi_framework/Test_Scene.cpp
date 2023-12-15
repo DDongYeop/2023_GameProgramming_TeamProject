@@ -25,6 +25,7 @@ void Test_Scene::Init()
 	Button* pBtn = new Button;
 	pBtn->SetPos(Vec2(100, 300));
 	pBtn->SetScale(Vec2(100, 100));
+	pBtn->SetOpen("");
 	pBtn->SetText(L"¹öÆ°");
 	AddUI(pBtn, UI_GROUP::BUTTON);
 

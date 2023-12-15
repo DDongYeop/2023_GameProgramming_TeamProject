@@ -11,7 +11,7 @@ void Puzzle_3::Init()
 
 	pText->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, (Core::GetInst()->GetResolution().y / 2) - 75 })));
 	pText->SetScale(Vec2(1100, 200));
-	pText->AddText(L"4. 반마다 지각한 학생의 명단이 일주일 간격으로 적혀있습니다.\n각 주마다 특정 번호를 찾아내어 4자리의 암호를 입력해주십시오.");
+	pText->AddText(L"4. 반마다 결석한 학생의 명단이 일주일 간격으로 적혀있습니다.\n각 주마다 특정 번호를 찾아내어 4자리의 암호를 입력해주십시오.");
 	pText->AddText(L"STOP");
 	pText->AddText(L"잘하셨습니다.");
 	AddUI(pText, UI_GROUP::TEXT);

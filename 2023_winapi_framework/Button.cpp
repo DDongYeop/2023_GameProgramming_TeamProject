@@ -9,6 +9,7 @@ Button::Button()
 	: m_clickable(false)
 	, m_clickBtn(false)
 	, m_open(false)
+	, m_useThis(true)
 	, m_link{}
 {
 	AddFontResource(TEXT("Orbit Regular.ttf"));

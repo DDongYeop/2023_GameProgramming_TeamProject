@@ -68,7 +68,7 @@
 
 void Start_Scene::Init()
 {
-	SetWindowText(Core::GetInst()->GetHwnd(), L"경기게임마이스터고 입학 프로그램 ver.1.0");
+	//SetWindowText(Core::GetInst()->GetHwnd(), L"경기게임마이스터고 입학 프로그램 ver.1.0");
 
 	pText->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, (Core::GetInst()->GetResolution().y / 2) - 25 })));
 	pText->SetScale(Vec2(1100, 200));
