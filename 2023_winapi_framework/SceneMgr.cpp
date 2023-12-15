@@ -6,7 +6,7 @@
 #include "Puzzle_1.h"
 #include "Puzzle_2.h"
 #include "Puzzle_3.h"
-#include "Test_Scene.h"
+//#include "Test_Scene.h"
 #include "Intro.h"
 #include "EndScene.h"
 
@@ -22,7 +22,7 @@ void SceneMgr::Init()
 	RegisterScene(L"Puzzle_2", std::make_shared<Puzzle_2>());
 	RegisterScene(L"Puzzle_3", std::make_shared<Puzzle_3>());
 
-	RegisterScene(L"Test_Scene", std::make_shared<Test_Scene>());
+	//RegisterScene(L"Test_Scene", std::make_shared<Test_Scene>());
 
 	// 첫 시작 씬 로드
 	//LoadScene(L"Test_Scene");
