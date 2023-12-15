@@ -3,6 +3,7 @@
 #include "KeyMgr.h"
 #include "OpenMgr.h"
 #include "Core.h"
+#include "ResMgr.h"
 
 Button::Button()
 	: m_clickable(false)
@@ -32,6 +33,7 @@ void Button::Update()
 				m_clickBtn = true;
 				//SetWindowText(Core::GetInst()->GetHwnd(), L"¹öÆ° µé¾î¿È");
 				if (m_open) {
+					ResMgr::GetInst()->Play(L"Paper");
 					OpenMgr::GetInst()->Open(m_link);
 				}
 			}
