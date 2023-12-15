@@ -10,11 +10,6 @@
 //#include "CollisionMgr.h"
 //#include "ResMgr.h"
 
-#include "UI.h"
-#include "Text.h"
-#include "InputField.h"
-#include "Button.h"
-
 //void Start_Scene::Init()
 //{
 //	Object* pObj = new Player;
@@ -70,43 +65,20 @@
 //	CollisionMgr::GetInst()->CheckReset();
 //}
 
-Text* pText = new Text();		// 이거 변수 빼시죵
-InputField* pInputField1 = new InputField();
-InputField* pInputField2 = new InputField();
-InputField* pInputField3 = new InputField();
-Button* pHintBtn1 = new Button();
-Button* pHintBtn2 = new Button();
-bool puzzleSetting = false;
-float time = 0;
 
 void Start_Scene::Init()
 {
-	// 변수 초기화
-	m_puzzleOk = false;
-
 	SetWindowText(Core::GetInst()->GetHwnd(), L"경기게임마이스터고 입학 프로그램 ver.1.0");
 
-	pText->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, (Core::GetInst()->GetResolution().y / 2) - 50 })));
+	pText->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, (Core::GetInst()->GetResolution().y / 2) - 25 })));
 	pText->SetScale(Vec2(1100, 200));
 	pText->AddText(L"\n본 프로그램은 여러분의 능력을 효과적으로 평가하여\n경기게임마이스터고등학교의 입학생을 선별하기 위해 제작되었습니다.");
-	pText->AddText(L"\n지원자분들은 나오는 퍼즐을 풀어 능력을 입증해주십시오.\n행운을 빕니다.");
+	pText->AddText(L"\n지원자분들은 제시되는 퍼즐을 풀어 능력을 입증해주십시오.\n행운을 빕니다.");
 	pText->AddText(L"1. 입학을 위한 위치 암호를 순서대로 입력해주십시오.");
 	pText->AddText(L"STOP");			// 멈추기
 	pText->AddText(L"잘하셨습니다.");
 	pText->AddText(L"바로 다음단계로 넘어가겠습니다.");
 	AddUI(pText, UI_GROUP::TEXT);
-
-	//Vec2 pos = Vec2({ Core::GetInst()->GetResolution().x - 50, Core::GetInst()->GetResolution().y - 90});
-	//pHintBtn1->SetPos(Vec2(pos.x, pos.y));
-	//pHintBtn1->SetScale(Vec2(70, 35));
-	//pHintBtn1->SetText(L"힌트 1");
-	//pHintBtn1->SetOpen("https://map.kakao.com/");
-	//AddUI(pHintBtn1, UI_GROUP::BUTTON);
-	//pHintBtn2->SetPos(Vec2(pos.x, pos.y + 50));
-	//pHintBtn2->SetScale(Vec2(70, 35));
-	//pHintBtn2->SetText(L"힌트 2");
-	//pHintBtn2->SetOpen("https://map.kakao.com/");
-	//AddUI(pHintBtn2, UI_GROUP::BUTTON);
 }
 
 
@@ -156,7 +128,7 @@ void Start_Scene::Update()
 		pInputField3->Lock();
 		if (pText->GetComplete()) {
 			time += fDT;
-			if (time > 1) {
+			if (time > 1.5f) {
 				//SetWindowText(Core::GetInst()->GetHwnd(), L"게임 클리어 들어옴");
 				SceneMgr::GetInst()->LoadScene(L"Puzzle_1");
 			}
@@ -181,7 +153,7 @@ bool Start_Scene::PuzzleCheck()
 		|| (pInputField1->GetText() == "ENTITY" && pInputField2->GetText() == "SLEEPY" && pInputField3->GetText() == "FRIENDLY")
 		|| (pInputField1->GetText() == "BULGE" && pInputField2->GetText() == "CEILING" && pInputField3->GetText() == "WORK")
 		|| (pInputField1->GetText() == "PAUSE" && pInputField2->GetText() == "SUBSCRIBER" && pInputField3->GetText() == "FORGOT")//)
-		|| (pInputField1->GetText() == "A" && pInputField2->GetText() == "B" && pInputField3->GetText() == "C"))			// 이 출 지우기
+		|| (pInputField1->GetText() == "A" && pInputField2->GetText() == "B" && pInputField3->GetText() == "C"))			// 이 줄 지우기
 	{
 		return true;
 	}

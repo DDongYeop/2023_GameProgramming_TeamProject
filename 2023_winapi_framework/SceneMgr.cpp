@@ -1,8 +1,11 @@
 #include "pch.h"
 #include "SceneMgr.h"
 //#include "Game_Scene.h"
+#include "Intro.h"
 #include "Start_Scene.h"
 #include "Puzzle_1.h"
+#include "Puzzle_2.h"
+#include "Puzzle_3.h"
 #include "Test_Scene.h"
 #include "Intro.h"
 #include "EndScene.h"
@@ -14,15 +17,20 @@ void SceneMgr::Init()
 	//RegisterScene(L"Game_Scene", std::make_shared<Game_Scene>());
 	RegisterScene(L"Start_Scene", std::make_shared<Start_Scene>());
 	RegisterScene(L"Intro", std::make_shared<Intro>());
-	//RegisterScene(L"Puzzle_2", std::make_shared<Puzzle_2>());
 	RegisterScene(L"EndScene", std::make_shared<EndScene>());
+	RegisterScene(L"Puzzle_1", std::make_shared<Puzzle_1>());
+	RegisterScene(L"Puzzle_2", std::make_shared<Puzzle_2>());
+	RegisterScene(L"Puzzle_3", std::make_shared<Puzzle_3>());
 
 	RegisterScene(L"Test_Scene", std::make_shared<Test_Scene>());
 
-	// 첫 씬 지정
+	// 첫 시작 씬 로드
 	//LoadScene(L"Test_Scene");
 	//LoadScene(L"Start_Scene");
-	LoadScene(L"Intro");
+	//LoadScene(L"Intro");
+	//LoadScene(L"Puzzle_1");
+	//LoadScene(L"Puzzle_2");
+	LoadScene(L"Puzzle_3");
 }
 
 void SceneMgr::Update()
@@ -38,7 +46,7 @@ void SceneMgr::Render(HDC _dc)
 
 void SceneMgr::LoadScene(const wstring& _scenename)
 {
-	// 씬이 있으면
+	// 지금 씬이 있다면
 	if (m_pCurScene != nullptr)
 	{
 		m_pCurScene->Release();
