@@ -15,8 +15,8 @@ void SceneMgr::Init()
 	m_pCurScene = nullptr;
 	// ¾À µî·Ï
 	//RegisterScene(L"Game_Scene", std::make_shared<Game_Scene>());
-	RegisterScene(L"Start_Scene", std::make_shared<Start_Scene>());
 	RegisterScene(L"Intro", std::make_shared<Intro>());
+	RegisterScene(L"Start_Scene", std::make_shared<Start_Scene>());
 	RegisterScene(L"EndScene", std::make_shared<EndScene>());
 	RegisterScene(L"Puzzle_1", std::make_shared<Puzzle_1>());
 	RegisterScene(L"Puzzle_2", std::make_shared<Puzzle_2>());
@@ -30,7 +30,7 @@ void SceneMgr::Init()
 	//LoadScene(L"Intro");
 	//LoadScene(L"Puzzle_1");
 	//LoadScene(L"Puzzle_2");
-	LoadScene(L"Puzzle_3");
+	LoadScene(L"Intro");
 }
 
 void SceneMgr::Update()
