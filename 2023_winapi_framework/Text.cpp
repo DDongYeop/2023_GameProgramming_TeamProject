@@ -2,11 +2,10 @@
 #include "define.h"
 #include "Text.h"
 #include "pathMgr.h"
-//#include "SelectGDI.h"
 #include "TimeMgr.h"
 #include "KeyMgr.h"
 #include "Core.h"
-//#include <fstream>
+#include "ResMgr.h"
 #include <queue>
 
 Text::Text() 
@@ -81,7 +80,10 @@ void Text::Render(HDC _dc)
 			if (m_sFrontText.size() != 0)		// 현재 글자의 사이즈가 0이 아니면
 			{
 				if (m_sPrintText.size() < m_sFrontText.size())			// 지금의 글자가 더 많으면
+				{
 					m_sPrintText += m_sFrontText[m_sPrintText.size()];		// 사이즈가 인덱스보다 더 밀리니까? 글자가 더 나와짐
+					ResMgr::GetInst()->Play(L"Keyboard");
+				}
 				
 				if (m_sPrintText == m_sFrontText) {
 					if (!m_qPrintQueue.empty() && m_qPrintQueue.front() == L"STOP")		// 만약 다음것이 스탑이면

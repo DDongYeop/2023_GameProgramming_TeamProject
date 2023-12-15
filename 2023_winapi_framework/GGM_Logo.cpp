@@ -27,7 +27,7 @@ GGM_Logo::~GGM_Logo()
 
 void GGM_Logo::Update()
 {
-	m_fFadeValue -= fDT * 100;
+	m_fFadeValue -= fDT * 75;
 	FadeMgr::GetInst()->Update(m_fFadeValue);
 
 	if (m_fFadeValue <= -75)
